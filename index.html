@@ -5,14 +5,15 @@
 <script type="text/javascript">
 	$(document).ready(function(){
         $.get('site.conf', function (data) {
-    		console.log(jQuery.parseJSON(data));
-    		console.log(jQuery.parseJSON(data).site);
-    		console.log(jQuery.parseJSON(data).site.project);
-    		console.log(jQuery.parseJSON(data).site.project.count);
-    		$('div.index').html += jQuery.parseJSON(data);
-    		$('div.index').html += jQuery.parseJSON(data).site;
-    		$('div.index').html += jQuery.parseJSON(data).site.project;
-    		$('div.index').html += jQuery.parseJSON(data).site.project.count;
+    		var obj = jQuery.parseJSON(data);
+    		console.log(obj);
+    		console.log(obj.site);
+    		console.log(obj.site.project);
+    		console.log(obj.site.project.count);
+    		$('div.index').html += obj;
+    		$('div.index').html += obj.site;
+    		$('div.index').html += obj.site.project;
+    		$('div.index').html += obj.site.project.count;
 		});
 	});
 </script>
