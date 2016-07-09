@@ -10,7 +10,7 @@
     		pCount = jQuery.parseJSON(data).site.project.count;
     		console.log(pCount);
 		});
-		while(pCount){
+		while(pCount--){
 			var t = pCount;
 			$.get('projects/proj' + t + '/proj.conf',function(data){
 				var newEnt = '<a onclick="loadContent(' + "'projects/proj" + t + '/';
