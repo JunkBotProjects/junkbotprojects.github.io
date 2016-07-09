@@ -1,3 +1,5 @@
+git rm site.conf
+
 set count=
 for /d %%a in (H:\junkbotprojects.github.io\projects\*) do set /a count+=1
 echo %count%
