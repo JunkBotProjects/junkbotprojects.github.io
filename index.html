@@ -3,6 +3,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
 <script type="text/javascript">
+	var converter = new showdown.Converter();
 	var pCount;
 	$(document).ready(function(){
         $.get('site.conf', function (data) {
@@ -23,6 +24,11 @@
 			}
 		});
 	});
+	function loadContent(url){
+		$.get(url,function(data){
+			$("div.content").html(converter.makeHtml(data));
+		});		
+	}
 </script>
 </head>
 <body>
