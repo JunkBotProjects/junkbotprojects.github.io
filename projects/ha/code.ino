@@ -1,40 +1,27 @@
         #include <SoftwareSerial.h>
         SoftwareSerial SSerial (2,3);
 
-        #include <AFMotor.h>
-        AF_DCMotor motor1(1, MOTOR12_64KHZ);
-        AF_DCMotor motor2(2, MOTOR12_64KHZ);
+        int PIN = 4;
 
         void setup() {
           // put your setup code here, to run once:
           SSerial.begin(9600);
-          motor1.setSpeed(200);
-          motor2.setSpeed(200);
+          Serial.begin(9600);
+          pinMode(PIN, OUTPUT);
         }
 
         void loop() {
           // put your main code here, to run repeatedly:
           if(SSerial.available()){
             switch ( SSerial.read ) {
-              case 'L' :
-                motor1.run(FORWARD);
-                motor2.run(BACKWARD);
+              case '1' :
+                digitalWrite(PIN, HIGH);
               break;
-              case 'R' :
-                motor1.run(BACKWARD);
-                motor2.run(FORWARD);
+              case '0' :
+                digitalWrite(PIN, LOW);
               break;
-              case 'F' :
-                motor1.run(FORWARD);
-                motor2.run(FORWARD);
-              break;
-              case 'B' :
-                motor1.run(BACKWARD);
-                motor2.run(BACKWARD);
-              break;
-              case 'S' :
-                motor1.run(RELEASE);
-                motor2.run(RELEASE);
+              default :
+                Serial.print("403")
               break;
             }
           }

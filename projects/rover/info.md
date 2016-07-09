@@ -1,5 +1,3 @@
-#Rover
-
 ##Parts
 
 - 5v DC Motor x 2
