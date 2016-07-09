@@ -47,9 +47,7 @@
     				function(data){
 					var newEnt = '<li><a href="#" onclick="loadContent(' + "'" + cProject + "'" + ')">' + jQuery.parseJSON(data).title + '</a></li>';
 					console.log(newEnt);
-					//$('div.index').html( $('div.index').html() + newEnt);
 					$('ul.nav-pills').append(newEnt);
-
 				});
     		});
 		});
