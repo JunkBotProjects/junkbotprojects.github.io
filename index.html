@@ -9,19 +9,19 @@
         	console.log(data);
     		pCount = jQuery.parseJSON(data).site.project.count;
     		console.log(pCount);
+			while(pCount > 0){
+				var t = pCount;
+				console.log('projects/proj' + t + '/proj.conf');
+				$.get('projects/proj' + t + '/proj.conf',function(data){
+					var newEnt = '<a onclick="loadContent(' + "'projects/proj" + t + '/';
+					newEnt += jQuery.parseJSON(data).markdown;
+					newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a>';
+					console.log(newEnt);
+					$('div.index').html += newEnt;
+				});
+				pCount -= 1;
+			}
 		});
-		while(pCount > 0){
-			var t = pCount;
-			console.log('projects/proj' + t + '/proj.conf');
-			$.get('projects/proj' + t + '/proj.conf',function(data){
-				var newEnt = '<a onclick="loadContent(' + "'projects/proj" + t + '/';
-				newEnt += jQuery.parseJSON(data).markdown;
-				newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a>';
-				console.log(newEnt);
-				$('div.index').html += newEnt;
-			});
-			pCount -= 1;
-		}
 	});
 </script>
 </head>
