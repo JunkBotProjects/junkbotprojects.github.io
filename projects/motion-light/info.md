@@ -26,3 +26,6 @@
 6. Open the _JB-Rover_ Bluetooth app.
 7. Connect to a bluetooth device called HC-05
 8. Use the controls to navigate the bot.
+
+##Circuits
+![Ultrasonic Sensor Wireup](/img/ultrasonic.png =250x250 "Ultrasonic Sensor Wireup")
