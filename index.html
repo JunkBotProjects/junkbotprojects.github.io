@@ -10,21 +10,22 @@
 </div>
 <script type="text/javascript">
 	//Indexing
-	var i=1;
-	for(i=1;i<10;i++){
+	var i=1,r=1;
+	while(r>0){
 		$.ajax({
 		    url:$(location).attr('href')+'p_00'+i+'/package.json',
 		    type:'HEAD',
 		    error: function()
 		    {
 		    	console.log("nada");
-		        i=10;
+		    	break;
 		    },
 		    success: function()
 		    {
 		    	$("div.index").html("<a href='loadChap();'>"+i+"</a>");
 		    }
 		});
+		i++;
 		console.log($(location).attr('href')+'_00'+i+'/package.json');
 	}
     //Loading
