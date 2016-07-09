@@ -4,11 +4,15 @@
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-        $.get('site.conf', function (data) {
+        $.load('site.conf', function (data) {
     		console.log(jQuery.parseJSON(data));
     		console.log(jQuery.parseJSON(data).site);
     		console.log(jQuery.parseJSON(data).site.project);
     		console.log(jQuery.parseJSON(data).site.project.count);
+    		$('div.index').html += jQuery.parseJSON(data);
+    		$('div.index').html += jQuery.parseJSON(data).site;
+    		$('div.index').html += jQuery.parseJSON(data).site.project;
+    		$('div.index').html += jQuery.parseJSON(data).site.project.count;
 		});
 	});
 </script>
