@@ -4,7 +4,7 @@
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-        $.load('site.conf', function (data) {
+        $.get('site.conf', function (data) {
     		console.log(jQuery.parseJSON(data));
     		console.log(jQuery.parseJSON(data).site);
     		console.log(jQuery.parseJSON(data).site.project);
