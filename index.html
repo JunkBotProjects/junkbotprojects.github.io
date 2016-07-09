@@ -17,7 +17,7 @@
 					newEnt += jQuery.parseJSON(data).markdown;
 					newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a>';
 					console.log(newEnt);
-					$('div.index').html += newEnt;
+					$('div.index').html( $('div.index').html() + newEnt);
 				});
 				pCount -= 1;
 			}
