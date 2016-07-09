@@ -3,19 +3,22 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
 <script type="text/javascript">
+	var pCount;
 	$(document).ready(function(){
         $.get('site.conf', function (data) {
         	console.log(data);
-    		var obj = jQuery.parseJSON(data);
-    		console.log(obj);
-    		console.log(obj.site);
-    		console.log(obj.site.project);
-    		console.log(obj.site.project.count);
-    		$('div.index').html += obj;
-    		$('div.index').html += obj.site;
-    		$('div.index').html += obj.site.project;
-    		$('div.index').html += obj.site.project.count;
+    		pCount = jQuery.parseJSON(data).site.project.count;
+    		console.log(pCount);
 		});
+		while(pCount){
+			var t = pCount;
+			$.get('projects/proj' + t + '/proj.conf',function(data){
+				var newEnt = '<a onclick="loadContent(' + "'projects/proj" + t + '/';
+				newEnt += jQuery.parseJSON(data).markdown;
+				newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a>';
+				$('div.index').html += newEnt;
+			});
+		}
 	});
 </script>
 </head>
