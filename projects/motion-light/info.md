@@ -1,5 +1,3 @@
-#Rover
-
 ##Parts
 
 - 5v DC Motor x 2
@@ -28,4 +26,4 @@
 8. Use the controls to navigate the bot.
 
 ##Circuits
-![Ultrasonic Sensor Wireup](/img/ultrasonic.png ="Ultrasonic Sensor Wireup")
+![Ultrasonic Sensor Wireup](/img/ultrasonic.png "Ultrasonic Sensor Wireup")
