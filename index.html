@@ -12,17 +12,18 @@
 	//Indexing
 	var i=1,r=1;
 	while(r>0){
+		var j = i;
 		$.ajax({
-		    url:$(location).attr('href')+'p_00'+i+'/package.json',
+		    url:$(location).attr('href')+'p_00'+j+'/package.json',
 		    type:'HEAD',
 		    error: function()
 		    {
 		    	console.log("nada");
-		    	break;
+		    	r=0;
 		    },
 		    success: function()
 		    {
-		    	$("div.index").html("<a href='loadChap();'>"+i+"</a>");
+		    	$("div.index").html( $("div.index").html() + "<a href='loadChap("+j+");'>Project "+j+"</a>");
 		    }
 		});
 		i++;
