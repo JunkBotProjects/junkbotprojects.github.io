@@ -9,10 +9,10 @@
 
 ##Wiring
 
-1. RX and TX of Bluetooth module *to* 2 and 3 pins of Arduino
-2. +ve and -ve of first motor *to* +ve and -ve on m1 output of motor driver shield
-3. +ve and -ve of second motor *to* +ve and -ve on m2 output of motor driver shield
-4. +5v and gnd from power source *to* +ve and -ve on _pwr in_ of motor driver shield
+1. **RX** and **TX** of Bluetooth module *to* pins **2** and **3** of Arduino
+2. **+ve** and **-ve** of first motor *to* **+ve** and **-ve** on **m1** output of motor driver shield
+3. **+ve** and **-ve** of second motor *to* **+ve** and **-ve** on **m2** output of motor driver shield
+4. **+5v** and **gnd** from power source *to* **+ve** and **-ve** on **wr in** of motor driver shield
 
 ##Procedure
 
