@@ -12,10 +12,12 @@
 		});
 		while(pCount--){
 			var t = pCount;
+			console.log('projects/proj' + t + '/proj.conf');
 			$.get('projects/proj' + t + '/proj.conf',function(data){
 				var newEnt = '<a onclick="loadContent(' + "'projects/proj" + t + '/';
 				newEnt += jQuery.parseJSON(data).markdown;
 				newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a>';
+				console.log(newEnt);
 				$('div.index').html += newEnt;
 			});
 		}
