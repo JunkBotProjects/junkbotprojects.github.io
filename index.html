@@ -1,40 +1,154 @@
-<html>
-<head>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+<!DOCTYPE html>
+<html lang="en" class="csstransforms csstransforms3d csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!--Color-->
+    <!-- Chrome, Firefox OS and Opera -->  
+    <meta name="theme-color" content="#ffffff" />  
+    <!-- Windows Phone -->  
+    <meta name="msapplication-navbutton-color" content="#ffffff" />  
+    <!-- iOS Safari -->  
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--!Color-->    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JunkBot Projects</title>
+
+    <!-- Bootstrap -->
+    <link href="./assets_files/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./assets_files/font-awesome.min.css">
+	<link rel="stylesheet" href="./assets_files/font-awesome.css">
+	<link href="./assets_files/default.css" rel="stylesheet">
+	<link rel="stylesheet" href="./assets_files/animate.css">
+	<link rel="stylesheet" href="./assets_files/jquery.fancybox.css" type="text/css" media="screen">
+	<link rel="stylesheet" type="text/css" href="./assets_files/isotope.css" media="screen">	
+	<link rel="stylesheet" href="./assets_files/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
-<script type="text/javascript">
-	var converter = new showdown.Converter();
-	var pCount;
+  <script type="text/javascript">
+  jQuery.ajaxSetup({async:false});
+  var converter = new showdown.Converter();
 	$(document).ready(function(){
-        $.get('site.conf', function (data) {
+        $.get(
+        	'site.conf',
+        	function (data) {
         	console.log(data);
-    		pCount = jQuery.parseJSON(data).site.project.count;
-    		console.log(pCount);
-			while(pCount > 0){
-				var t = pCount;
-				console.log('projects/proj' + t + '/proj.conf');
-				$.get('projects/proj' + t + '/proj.conf',function(data){
-					var newEnt = '<a href="#" onclick="loadContent(' + "'projects/proj" + t + '/';
-					newEnt += jQuery.parseJSON(data).markdown;
-					newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a> | ';
+    		projects = jQuery.parseJSON(data).site.projects;
+    		projects.forEach(function(cProject){
+    			console.log('projects/' + cProject + '/proj.conf');
+    			$.get(
+    				'projects/' + cProject + '/proj.conf',
+    				function(data){
+					var newEnt = '<li><a href="#" onclick="loadContent(' + "'" + cProject + "'" + ')">' + jQuery.parseJSON(data).title + '</a></li>';
 					console.log(newEnt);
-					$('div.index').html( $('div.index').html() + newEnt);
+					//$('div.index').html( $('div.index').html() + newEnt);
+					$('ul.nav-pills').append(newEnt);
+
 				});
-				pCount -= 1;
-			}
+    		});
 		});
 	});
-	function loadContent(url){
-		$.get(url,function(data){
-			$("div.content").html(converter.makeHtml(data));
+	function loadContent(tProject){
+		$.get('projects/' + tProject + '/proj.conf',function(data){
+			var parsedData = jQuery.parseJSON(data);
+			$('div.title').html('<h1>'+parsedData.title+'</h1>');
+			$('div.desc').html('<h4>'+parsedData.description+'</h4>');
+			$("div.pcontent").html('');
+			parsedData.info.forEach(function(tInfo){
+				$.get('projects/' + tProject + '/' + tInfo,function(tInfoContent){
+					$("div.pcontent").html( $("div.pcontent").html()+converter.makeHtml(tInfoContent));
+				});
+			});
+			$("div.pcode").html('<h2>Code</h2>');
+			parsedData.code.forEach(function(tCode){
+				$.get('projects/' + tProject + '/' + tCode,function(tCodeContent){
+					$("div.pcode").html( $("div.pcode").html()+converter.makeHtml(tCodeContent));
+				});
+			});
 		});		
 	}
-</script>
-</head>
-<body>
-<div class="index">
-</div>
-<div class="content">
-</div>
-</body>
-</html>
+  </script>
+  </head>
+  <body>
+    <header>
+		<div class="main-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">						
+						<h1><a class="navbar-brand" href="#" data-0="line-height:90px;" data-300="line-height:50px;">JunkBot Projects
+					</a></h1>   						
+					</div>						
+					<div class="col-md-8">
+						<div class="dropdown">
+							<ul class="nav nav-pills">
+								<!--
+						   		<li><a>Home</a></li>
+								<li><a>Portfolio</a></li>
+						   		<li><a>Blog</a></li>
+								<li><a>Contact</a></li>
+								-->	
+							</ul>
+						</div>
+					</div>	
+				</div>				
+			</div>
+		</div>
+	</header>		
+	<div class="row mar-bot40">
+		<div class="col-md-offset-3 col-md-6">
+			<div class="sections-header">
+				<div class="title"><h2>Project</h2></div>
+				<div class="desc"><p>Description</p></div>
+			</div>
+		</div>
+	</div>		
+	<section id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="pcontent">Hello</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="pcode">World</div>
+			</div>
+		</div>
+	</div>
+	</section>	
+	<footer>
+		<section id="footer" class="section footer">
+			<div class="container">
+				<div class="row align-center copyright">
+					<div class="col-sm-12"><p>Copyright © 2016 JunkBot Projects - by <a href="https://athulraj.com/">Athul Raj</a></p></div>
+				</div>
+			</div>
+		</section>
+		<a href="#" class="scrollup"><i class="fa fa-chevron-up"> </i></a>
+	</footer>
+	
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script async="" src="./assets_files/analytics.js">
+    </script><script src="./assets_files/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./assets_files/bootstrap.min.js"></script>
+	<script src="./assets_files/jquery.isotope.min.js"></script>
+	<script src="./assets_files/jquery.fancybox.pack.js"></script>
+	<script src="./assets_files/wow.min.js"></script>
+	<script src="./assets_files/functions.js"></script>
+	<script type="text/javascript">
+		new WOW().init();
+		$('li').on('click', function(){
+    		//$(this).parent().addClass('active').siblings().removeClass('active');
+    		$(this).addClass('active');
+    		$(this).siblings().removeClass('active');
+		});
+	</script>
+	
+
+</body></html>
