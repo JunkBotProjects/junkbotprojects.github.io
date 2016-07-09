@@ -1,1 +1,35 @@
-Shit is real
+<html>
+<head>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
+</head>
+<body>
+<div class="index">
+<div class="content">
+</div>
+<script type="text/javascript">
+	//Indexing
+	var i=1;
+	for(i=1;i<10;i++){
+		$.ajax({
+		    url:$(location).attr('pathname')+'/_00'+i+'/package.json',
+		    type:'HEAD',
+		    error: function()
+		    {
+		    	console.log("nada");
+		        //break;
+		    },
+		    success: function()
+		    {
+		    	$("div.index").html($("div.index").html+"<a>"+i+"</a>");
+		    }
+		});
+	}
+    //Loading
+	var converter = new showdown.Converter();
+    var file_contents = '#hello, markdown!';
+	$("div").html(converter.makeHtml(file_contents));
+	console.log(converter.makeHtml(file_contents));
+</script>
+</body>
+</html>
