@@ -12,16 +12,16 @@
 	var i=1;
 	for(i=1;i<10;i++){
 		$.ajax({
-		    url:$(location).attr('href')+'/_00'+i+'/package.json',
+		    url:$(location).attr('href')+'_00'+i+'/package.json',
 		    type:'HEAD',
 		    error: function()
 		    {
 		    	console.log("nada");
-		        //break;
+		        break;
 		    },
 		    success: function()
 		    {
-		    	$("div.index").html($("div.index").html+"<a>"+i+"</a>");
+		    	$("div.index").html($("div.index").html+"<a href='loadChap();'>"+i+"</a>");
 		    }
 		});
 	}
