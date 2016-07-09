@@ -10,7 +10,7 @@
     		pCount = jQuery.parseJSON(data).site.project.count;
     		console.log(pCount);
 		});
-		while(pCount--){
+		while(pCount > 0){
 			var t = pCount;
 			console.log('projects/proj' + t + '/proj.conf');
 			$.get('projects/proj' + t + '/proj.conf',function(data){
@@ -20,6 +20,7 @@
 				console.log(newEnt);
 				$('div.index').html += newEnt;
 			});
+			pCount -= 1;
 		}
 	});
 </script>
