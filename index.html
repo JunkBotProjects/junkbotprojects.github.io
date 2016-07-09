@@ -16,7 +16,7 @@
 				$.get('projects/proj' + t + '/proj.conf',function(data){
 					var newEnt = '<a onclick="loadContent(' + "'projects/proj" + t + '/';
 					newEnt += jQuery.parseJSON(data).markdown;
-					newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a>';
+					newEnt += "'" + ')">' + jQuery.parseJSON(data).title + '</a> | ';
 					console.log(newEnt);
 					$('div.index').html( $('div.index').html() + newEnt);
 				});
