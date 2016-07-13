@@ -36,3 +36,5 @@
 ![BBot](/img/bbot2/2.jpg)
 ###5. Boxing
 ![BBot](/img/bbot2/3.jpg)
+###6. APP
+![BBot](/img/bbot2/APPI.jpg)
