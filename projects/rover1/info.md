@@ -1,7 +1,7 @@
 ##Parts
 
 - 5v DC Motor x 2
-- Wheels x 2 
+- Wheels x 4
 - any make-do body
 - Arduino
 - Bluetooth Module
@@ -21,6 +21,7 @@
 3. Fix the motor(s), arduino, bluetooth module and power source on the body.
 4. Upload the program to the arduino
 5. Turn on the power source.
-6. Open the _JB-Rover_ Bluetooth app.
+6. Open the *JunkBotBluetooth* app.
 7. Connect to a bluetooth device called HC-05
 8. Use the controls to navigate the bot.
+9. Check the Accelerometer Check box to enable it. Then, tilt the phone to control the rover.
