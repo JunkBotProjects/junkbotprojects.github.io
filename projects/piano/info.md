@@ -14,3 +14,14 @@
 
 1. Wire Up all points.
 2. Upload the Code.
+
+##Pictures
+###1. Piano
+![Piano](/img/piano/1.jpg)
+###2. Piano
+![Piano](/img/piano/2.jpg)
+###3. Arduino
+![Piano](/img/piano/arduino.jpg)
+###4. Sensor
+![Piano](/img/piano/sensor.jpg)
+
