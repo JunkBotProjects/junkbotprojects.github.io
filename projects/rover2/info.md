@@ -22,9 +22,10 @@
 4. Upload the program to the arduino
 5. Turn on the power source.
 6. Open the *JunkBotBluetooth* app.
-7. Connect to a bluetooth device called HC-05 and select the Rover FLBRS project
-8. Use the controls to navigate the bot.
-9. Check the Accelerometer Check box to enable it. Then, tilt the phone to control the rover.
+7. Connect to a bluetooth device called HC-05
+8. Select the Rover Joystick project
+9. Drag the contol to move the rover.
+10. The amount the control in moved decides the speed of the rover.
 
 ##Pictures
 ###1. Blue Rover [FLBRS]
@@ -58,6 +59,6 @@
 ![Blue Rover](/img/rover1/w.jpg)
 
 ###7. App
-![Blue Rover](/img/rover1/app.jpg)
+![Blue Rover](/img/rover2/app.jpg)
 
 
