@@ -9,16 +9,18 @@
         
         void setup(){
           SSerial.begin(9600);
-          Serial.begin(9600); // Open serial monitor at 115200 baud to see ping results.
+          Serial.begin(9600); 
         }
         
         void loop() {
-          delay(1000);
+          delay(50);
           Serial.print(run);
           if(run){
-            SSerial.println(sonar.ping_cm());
+            if(sonar.ping_cm()<20){
+              SSerial.print("ALERT");
+            }
           }else{
-            SSerial.println("Sensor Disabled");
+            //SSerial.print("NR");
           }
           if(SSerial.available())
           switch(SSerial.read()){

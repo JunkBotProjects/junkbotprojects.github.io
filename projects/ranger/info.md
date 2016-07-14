@@ -1,28 +1,39 @@
-#Rover
-
 ##Parts
 
-- 5v DC Motor x 2
-- Wheels x 2 
 - any make-do body
 - Arduino
 - Bluetooth Module
+- Ultransonic Sensor
 - 5V Power Source
 
 ##Wiring
 
-1. RX and TX of Bluetooth module *to* 2 and 3 pins of Arduino
-2. +ve and -ve of first motor *to* +ve and -ve on m1 output of motor driver shield
-3. +ve and -ve of second motor *to* +ve and -ve on m2 output of motor driver shield
-4. +5v and gnd from power source *to* +ve and -ve on _pwr in_ of motor driver shield
+1. VCC, Gnd, RX and TX of Bluetooth module *to* 3.3v, gnd, 10 and 11 pins on the Arduino
+2. VCC, Gnd, Echo and Trig of Ultrasonic Sensor Module *to* 3.3v, gnd, 9 and 12 pins on the Arduino 
 
 ##Procedure
 
 1. Wire Up all points.
-2. Fix the tires on the motor
-3. Fix the motor(s), arduino, bluetooth module and power source on the body.
-4. Upload the program to the arduino
-5. Turn on the power source.
-6. Open the _JB-Rover_ Bluetooth app.
-7. Connect to a bluetooth device called HC-05
-8. Use the controls to navigate the bot.
+2. Setup everything inside a box.
+3. Upload the program to the arduino.
+4. Power it up.
+5. Hold the bot in one hand.
+6. Open the *JunkBotBluetoothApp* and navigate to Ultrasonic Range finder in the other hand.
+7. Enable the sensor
+
+
+##Pictures
+###1. Ultrasonic Ranger Finder Bot
+![BBot](/img/bbot2/1.jpg)
+###2. Ultrasonic Sensor
+![BBot](/img/bbot2/6.jpg)
+###3. Bluetooth
+![BBot](/img/bbot2/4.jpg)
+###4. Arduino
+![BBot](/img/bbot2/8.jpg)
+###5. Layout
+![BBot](/img/bbot2/2.jpg)
+###5. Boxing
+![BBot](/img/bbot2/3.jpg)
+###5. APP
+![BBot](/img/ranger/APP.jpg)
