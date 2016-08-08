@@ -1,29 +1,35 @@
+#Motion Lighting
+
 ##Parts
 
-- 5v DC Motor x 2
-- Wheels x 2 
-- any make-do body
 - Arduino
-- Bluetooth Module
+- Ultranosic Sensor
+- LED Module
 - 5V Power Source
 
 ##Wiring
 
-1. RX and TX of Bluetooth module *to* 2 and 3 pins of Arduino
-2. +ve and -ve of first motor *to* +ve and -ve on m1 output of motor driver shield
-3. +ve and -ve of second motor *to* +ve and -ve on m2 output of motor driver shield
-4. +5v and gnd from power source *to* +ve and -ve on _pwr in_ of motor driver shield
+1. VCC, Gnd, Echo and Trig on the sensor to 5v, Gnd, 12 and 9 pins of Arduino
+2. VCC, Gnd, S on the LED module to 3.3v, Gnd and 13 pins on Arduino
 
 ##Procedure
 
 1. Wire Up all points.
-2. Fix the tires on the motor
-3. Fix the motor(s), arduino, bluetooth module and power source on the body.
-4. Upload the program to the arduino
-5. Turn on the power source.
-6. Open the _JB-Rover_ Bluetooth app.
-7. Connect to a bluetooth device called HC-05
-8. Use the controls to navigate the bot.
+2. Setup everything inside a box.
+3. Upload the program to the arduino.
+4. Power it up.
+5. Place the bot in a place to be where you need motion detected lighting.
+6. Turn on the bot.
 
-##Circuits
-![Ultrasonic Sensor Wireup](/img/ultrasonic.png "Ultrasonic Sensor Wireup")
+
+##Pictures
+###1. Burglar Alert Bot
+![BBot](/img/bbot2/1.jpg)
+###2. Ultrasonic Sensor
+![BBot](/img/bbot2/6.jpg)
+###3. Arduino
+![BBot](/img/bbot2/8.jpg)
+###4. Layout
+![BBot](/img/bbot2/7.jpg)
+###5. Boxing
+![BBot](/img/bbot2/9.jpg)
