@@ -10,11 +10,30 @@
         
         void loop() {
           if(SSerial.available()){
-            Keyboard.begin();
+            Mouse.begin();
             while(SSerial.available()){
-              Keyboard.write(SSerial.read());
+              switch(SSerial.read()){
+                case'U':
+                  Mouse.move(0, -40);
+                break;
+                case'D':
+                  Mouse.move(0, 40);
+                break;
+                case'L':
+                  Mouse.move(-40, 0);
+                break;
+                case'R':
+                  Mouse.move(40, 0);
+                break;
+                case'l':
+                  Mouse.click(MOUSE_LEFT);
+                break;
+                case'r':
+                  Mouse.click(MOUSE_RIGHT);
+                break;
+              }
             }
-            Keyboard.end();
+            Mouse.end();
           }
           delay(100);
         }

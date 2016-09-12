@@ -1,4 +1,4 @@
-#Bluethooth Keyboard Bot
+#Bluethooth Mouse Bot
 
 ##Parts
 
