@@ -23,7 +23,7 @@
 
 
 ##Pictures
-###1. Burglar Alert Bot
+###1. Motion Lighting Bot
 ![BBot](/img/bbot2/1.jpg)
 ###2. Ultrasonic Sensor
 ![BBot](/img/bbot2/6.jpg)
@@ -31,5 +31,3 @@
 ![BBot](/img/bbot2/8.jpg)
 ###4. Layout
 ![BBot](/img/bbot2/7.jpg)
-###5. Boxing
-![BBot](/img/bbot2/9.jpg)
