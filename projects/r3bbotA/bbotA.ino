@@ -9,7 +9,7 @@
         void setup(){
           SSerial.begin(9600);
           Serial.begin(9600);
-          pinMode(tonePin, OUTPUT);
+          pinMode(13, OUTPUT);
         }
         
         void loop() {
