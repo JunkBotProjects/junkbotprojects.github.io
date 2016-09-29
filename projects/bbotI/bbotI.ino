@@ -2,7 +2,7 @@
         #include <NewPing.h>
 
         SoftwareSerial SSerial(9,10);
-        NewPing sonar(11,12,200); // NewPing setup of pins and maximum distance.
+        NewPing sonar(11,12,200);
         boolean run = false;
         char b[5];
 
