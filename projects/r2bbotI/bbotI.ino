@@ -28,5 +28,5 @@
               case 'E':
                 run = false;
               break;
-            }
+          }
         }
