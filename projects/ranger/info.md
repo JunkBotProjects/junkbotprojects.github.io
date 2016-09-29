@@ -8,8 +8,8 @@
 
 ##Wiring
 
-1. VCC, Gnd, RX and TX of Bluetooth module *to* 3.3v, gnd, 10 and 11 pins on the Arduino
-2. VCC, Gnd, Echo and Trig of Ultrasonic Sensor Module *to* 3.3v, gnd, 9 and 12 pins on the Arduino 
+1. VCC, Gnd, RX and TX of Bluetooth module *to* 3.3v, gnd, 9 and 10 pins on the Arduino
+2. VCC, Gnd, Echo and Trig of Ultrasonic Sensor Module *to* 3.3v, gnd, 11 and 12 pins on the Arduino 
 
 ##Procedure
 

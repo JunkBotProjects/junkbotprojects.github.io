@@ -9,8 +9,8 @@
 
 ##Wiring
 
-1. **RX** and **TX** of Bluetooth module *to* **10** and **11** pins of Arduino
-2. VCC, Gnd, Echo and Trig on the sensor to 5v, Gnd, 12 and 9 pins of Arduino
+1. **RX** and **TX** of Bluetooth module *to* **9** and **10** pins of Arduino
+2. VCC, Gnd, Echo and Trig on the sensor to 5v, Gnd, 11 and 12 pins of Arduino
 
 ##Procedure
 
