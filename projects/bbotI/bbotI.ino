@@ -4,6 +4,7 @@
         SoftwareSerial SSerial(9,10);
         NewPing sonar(11,12,200); // NewPing setup of pins and maximum distance.
         boolean run = false;
+        char b[5];
 
         void setup(){
           SSerial.begin(9600);
@@ -19,7 +20,8 @@
             }
           }
           if(SSerial.available())
-            switch( String(SSerial.read(),HEX)[0] ){
+            SSerial.readString().toCharArray(b,5);
+            switch((char)strtoul(b, 0, 16)){
               case 'S':
                 run = true;
               break;
