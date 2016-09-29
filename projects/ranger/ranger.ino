@@ -1,32 +1,40 @@
+        //Libraries
         #include <SoftwareSerial.h>
         #include <NewPing.h>
-        #define TRIGGER_PIN  9  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-        #define ECHO_PIN     12  // Arduino pin tied to echo pin on the ultrasonic sensor.
-        #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
-        SoftwareSerial SSerial(10,11);
+
+        //Variables
+        SoftwareSerial SSerial(9,10);
         boolean run = false;
-        NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
+        NewPing sonar(11,12,200); // NewPing setup of pins and maximum distance.
         
         void setup(){
           SSerial.begin(9600);
-          Serial.begin(9600); // Open serial monitor at 115200 baud to see ping results.
+          Serial.begin(9600);
         }
         
         void loop() {
-          delay(1000);
-          Serial.print(run);
+          delay(100);
+          if(run)
+            Serial.println('Sensor is On');
+          else
+            Serial.println('Sensor is Off');
           if(run){
-            SSerial.println(sonar.ping_cm());
-          }else{
-            SSerial.println("Sensor Disabled");
+            SSerial.print("0x3"+sonar.ping_cm()/10);            
+            SSerial.println("0x3"+sonar.ping_cm()%10);
+            delay(900);
           }
+          else
+            SSerial.println("Sensor Disabled");
+          
           if(SSerial.available())
-          switch(SSerial.read()){
+          switch( String(SSerial.read(),HEX)[0] ){
             case 'S':
               run = true;
             break;
             case 'E':
               run = false;
             break;
+            default:
+              SSerial.println("0x340x300x34");
           }
         }
