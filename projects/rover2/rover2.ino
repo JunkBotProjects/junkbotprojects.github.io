@@ -1,45 +1,54 @@
         #include <SoftwareSerial.h>
         SoftwareSerial SSerial (9,10);
-        #include <AFMotor.h>
-        AF_DCMotor motor1(1);
-        AF_DCMotor motor2(2);
-        char ch;
+        char b[5];
+        int speed=255;
+        int lp = 3;
+        int ln = 5;
+        int rp = 6;
+        int rn = 11;
         void setup() {
           // put your setup code here, to run once:
           SSerial.begin(9600);
-          motor1.setSpeed(200);
-          motor2.setSpeed(200);
         }
 
         void loop() {
           // put your main code here, to run repeatedly:
           if(SSerial.available()){
-            ch = SSerial.read();
-            Serial.println(ch);
-            switch ( ch ){
+            SSerial.readString().toCharArray(b,5);
+            switch((char)strtoul(b, 0, 16)){
               case 'L' :
-                motor1.run(FORWARD);
-                motor2.run(BACKWARD);
+                analogWrite(lp,0);
+                analogWrite(ln,speed);
+                analogWrite(rp,speed);
+                analogWrite(rn,0);
               break;
               case 'R' :
-                motor1.run(BACKWARD);
-                motor2.run(FORWARD);
+                analogWrite(rp,0);
+                analogWrite(rn,speed);
+                analogWrite(lp,speed);
+                analogWrite(ln,0);
               break;
               case 'F' :
-                motor1.run(FORWARD);
-                motor2.run(FORWARD);
+                analogWrite(lp,0);
+                analogWrite(ln,speed);
+                analogWrite(rp,0);
+                analogWrite(rn,speed);
               break;
               case 'B' :
-                motor1.run(BACKWARD);
-                motor2.run(BACKWARD);
+                analogWrite(lp,speed);
+                analogWrite(ln,0);
+                analogWrite(rp,speed);
+                analogWrite(rn,0);
               break;
               case 'S' :
-                motor1.run(RELEASE);
-                motor2.run(RELEASE);
+                analogWrite(lp,0);
+                analogWrite(ln,0);
+                analogWrite(rp,0);
+                analogWrite(rn,0);
               break;
             }
-            ch = SSerial.read();
-            motor1.setSpeed(20 * (int(ch)+1) );
-            motor2.setSpeed(20 * (int(ch)+1) );
+            SSerial.readString().toCharArray(b,5);
+            //set speed
+            speed = ( strtoul(b, 0, 16) + 1 ) * 25;
           }
         }
