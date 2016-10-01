@@ -10,11 +10,8 @@
 
         void loop() {
           // put your main code here, to run repeatedly:
-          inString="";
-          if((SSerial.available())){
-            while(SSerial.available()){
-              inString += (char)SSerial.read();
-            }
-            analogWrite(PIN,inString.toInt());
+          if(SSerial.available()){
+            SSerial.readString().toCharArray(b,5);
+            analogWrite(PIN,(strtoul(b, 0, 16)+1)*25);
           }
         }
