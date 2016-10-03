@@ -61,7 +61,7 @@
         	'conf.json',
         	function (data) {
         	console.log(data);
-    		conf = jQuery.parseJSON(data);
+    		conf = data;
     		site = conf.site;
     		projects = site.projects;
     		projects.forEach(function(cProject){
