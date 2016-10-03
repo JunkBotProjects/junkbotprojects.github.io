@@ -81,7 +81,8 @@ ul.nav-pills  {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
+  /*color: #fff;*/
+  color: #428bca;
   background-color: #EEE;
 }
 .nav-pills > li.active > a{
@@ -114,9 +115,9 @@ ul.nav-pills  {
 .align-center:hover  i {
 	color:#428bca;	
 	-webkit-transition-duration: 2s;
-  -moz-transition-duration: 2s;
-  -o-transition-duration: 2s;
-  transition-duration: 2s;
+    -moz-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
 }	
 
 .box-bg {  	
