@@ -51,19 +51,18 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
   <script type="text/javascript">
-  console.log(JSON.stringify(siteConf));
   jQuery.ajaxSetup({async:false});
   var converter = new showdown.Converter();
 	$(document).ready(function(){
         $.get(
-        	'site.conf',
+        	'conf.json',
         	function (data) {
         	console.log(data);
     		projects = jQuery.parseJSON(data).site.projects;
     		projects.forEach(function(cProject){
-    			console.log('projects/' + projects.site.version + '/' + cProject + '/proj.conf');
+    			console.log('projects/' + projects.site.version + '/' + cProject + '/proj.json');
     			$.get(
-    				'projects/' + projects.site.version + '/' + cProject + '/proj.conf',
+    				'projects/' + projects.site.version + '/' + cProject + '/proj.json',
     				function(data){
 					var newEnt = '<li><a href="#" onclick="loadContent(' + "'" + cProject + "'" + ')">' + jQuery.parseJSON(data).title + '</a></li>';
 					console.log(newEnt);
@@ -73,7 +72,7 @@
 		});
 	});
 	function loadContent(tProject){
-		$.get('projects/' + projects.site.version + '/' + tProject + '/proj.conf',function(data){
+		$.get('projects/' + projects.site.version + '/' + tProject + '/proj.json',function(data){
 			var parsedData = jQuery.parseJSON(data);
 			$('div.title').html('<h1>'+parsedData.title+'</h1>');
 			$('div.desc').html('<h4>'+parsedData.description+'</h4>');
