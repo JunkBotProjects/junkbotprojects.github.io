@@ -58,11 +58,12 @@
         	'conf.json',
         	function (data) {
         	console.log(data);
-    		projects = jQuery.parseJSON(data).site.projects;
+    		var site = jQuery.parseJSON(data).site;
+    		var projects = site.projects;
     		projects.forEach(function(cProject){
-    			console.log('projects/' + projects.site.version + '/' + cProject + '/proj.json');
+    			console.log('projects/' + site.version + '/' + cProject + '/proj.json');
     			$.get(
-    				'projects/' + projects.site.version + '/' + cProject + '/proj.json',
+    				'projects/' + site.version + '/' + cProject + '/proj.json',
     				function(data){
 					var newEnt = '<li><a href="#" onclick="loadContent(' + "'" + cProject + "'" + ')">' + jQuery.parseJSON(data).title + '</a></li>';
 					console.log(newEnt);
@@ -72,19 +73,19 @@
 		});
 	});
 	function loadContent(tProject){
-		$.get('projects/' + projects.site.version + '/' + tProject + '/proj.json',function(data){
+		$.get('projects/' + site.version + '/' + tProject + '/proj.json',function(data){
 			var parsedData = jQuery.parseJSON(data);
 			$('div.title').html('<h1>'+parsedData.title+'</h1>');
 			$('div.desc').html('<h4>'+parsedData.description+'</h4>');
 			$("div.pcontent").html('');
 			parsedData.info.forEach(function(tInfo){
-				$.get('projects/' + projects.site.version + '/' + tProject + '/' + tInfo,function(tInfoContent){
+				$.get('projects/' + site.version + '/' + tProject + '/' + tInfo,function(tInfoContent){
 					$("div.pcontent").html( $("div.pcontent").html()+converter.makeHtml(tInfoContent));
 				});
 			});
 			$("div.pcode").html('<h2>Code</h2>');
 			parsedData.code.forEach(function(tCode){
-				$.get('projects/' + projects.site.version + '/' + tProject + '/' + tCode,function(tCodeContent){
+				$.get('projects/' + site.version + '/' + tProject + '/' + tCode,function(tCodeContent){
 					$("div.pcode").html( $("div.pcode").html()+converter.makeHtml(tCodeContent));
 				});
 			});
