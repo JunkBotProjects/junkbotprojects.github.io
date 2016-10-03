@@ -51,6 +51,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
   <script type="text/javascript">
+  var conf;
+  var site;
+  var projects;
   jQuery.ajaxSetup({async:false});
   var converter = new showdown.Converter();
 	$(document).ready(function(){
@@ -58,8 +61,9 @@
         	'conf.json',
         	function (data) {
         	console.log(data);
-    		var site = jQuery.parseJSON(data).site;
-    		var projects = site.projects;
+    		conf = jQuery.parseJSON(data);
+    		site = conf.site;
+    		projects = site.projects;
     		projects.forEach(function(cProject){
     			console.log('projects/' + site.version + '/' + cProject + '/proj.json');
     			$.get(
