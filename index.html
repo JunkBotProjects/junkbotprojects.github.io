@@ -69,7 +69,7 @@
     			$.get(
     				'projects/' + site.version + '/' + cProject + '/proj.json',
     				function(data){
-					var newEnt = '<li><a href="#" onclick="loadContent(' + "'" + cProject + "'" + ')">' + jQuery.parseJSON(data).title + '</a></li>';
+					var newEnt = '<li><a href="#" onclick="loadContent(' + "'" + cProject + "'" + ')">' + data.title + '</a></li>';
 					console.log(newEnt);
 					$('ul.nav-pills').append(newEnt);
 				});
@@ -78,7 +78,7 @@
 	});
 	function loadContent(tProject){
 		$.get('projects/' + site.version + '/' + tProject + '/proj.json',function(data){
-			var parsedData = jQuery.parseJSON(data);
+			var parsedData = data;
 			$('div.title').html('<h1>'+parsedData.title+'</h1>');
 			$('div.desc').html('<h4>'+parsedData.description+'</h4>');
 			$("div.pcontent").html('');
