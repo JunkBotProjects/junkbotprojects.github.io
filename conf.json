@@ -1,6 +1,6 @@
 { 
 	"site":{ 
-		"version":4,
+		"version":5,
 		"projects":[
 			"rover1",
 			"rover2",
