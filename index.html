@@ -20,6 +20,7 @@
 
     <!-- Bootstrap -->
     <link href="assets/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 	<link rel="stylesheet" href="assets/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/font-awesome.css">
 	<link href="assets/default.css" rel="stylesheet">
@@ -50,13 +51,41 @@
 	</style>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
-  <script type="text/javascript">
-  var conf;
-  var site;
-  var projects;
-  jQuery.ajaxSetup({async:false});
-  var converter = new showdown.Converter();
+<script type="text/javascript">
+	var errTO=0;
+	var conf;
+	var site;
+	var projects;
+	jQuery.ajaxSetup({async:false});
+	var converter = new showdown.Converter();
 	$(document).ready(function(){
+		setInterval(function(){
+			if(errTO > 0){
+				errTO--;
+				console.log(errTO);
+				if(errTO==20)
+					$('.errs').fadeOut();
+				if(errTO==0)
+					$('#cUErr').html('');
+			}
+		},100);
+		$('#codeUpload').click(function (){
+			alert('Err');
+			var tTemp = '\
+			<div class="col-md-12 errs">\
+			<div class="w3-panel w3-red">\
+			<h3>Failed !</h3>\
+			<p>Failed to upload code. This feature is experimental and requires the following.</p>\
+			<ol>\
+			<li>The repository must be downloaded and running locally.</li>\
+			<li>The environment variables should be set.</li>\
+			<li>Arduino must be installed in C:\Program Files (x86)\Arduino</li>\
+			</ol>\
+			</div>\
+			</div>';
+			$('#cUErr').html($('#cUErr').html()+tTemp);
+			errTO = 70;
+		});
         $.get(
         	'conf.json',
         	function (data) {
@@ -103,9 +132,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">						
-						<h1><a class="navbar-brand" href="/" data-0="line-height:90px" data-300="line-height:50px;">JunkBot Projects
-					</a></h1>   						
-					</div>						
+						<h1>
+							<a class="navbar-brand" href="/" data-0="line-height:90px" data-300="line-height:50px;">
+								JunkBot Projects
+							</a>
+						</h1>   						
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
@@ -123,12 +155,21 @@
 				</div>				
 			</div>
 		</div>
-	</header>		
-	<div class="row mar-bot40">
+	</header>
+	<div class="row" id="cUErr">
+	</div>		
+	<div class="row mar-bot40" style="display: flex; justify-content: center;">
 		<div class="col-md-offset-3 col-md-6">
 			<div class="sections-header">
 				<div class="title"><h2>JunkBot Projects</h2></div>
 				<div class="desc"><p>Click on a Project to Begin</p></div>
+			</div>
+		</div>
+		<div class="col-md-3" style="align-self: center;">
+			<div class="w3-btn-floating-large" id="codeUpload">
+				<b>
+					>
+				</b>
 			</div>
 		</div>
 	</div>		
