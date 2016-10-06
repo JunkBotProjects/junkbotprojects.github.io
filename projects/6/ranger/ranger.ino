@@ -6,8 +6,8 @@
         SoftwareSerial SSerial(9,10);
         boolean run = false;
         char b[5];
-        NewPing sonar(11,12,200); // NewPing setup of pins and maximum distance.
-        
+        NewPing sonar(11,12,200);
+        int temp;
         void setup(){
           SSerial.begin(9600);
           Serial.begin(9600);
@@ -20,8 +20,14 @@
           else
             Serial.println('Sensor is Off');
           if(run){
-            SSerial.print("0x3"+sonar.ping_cm()/10);            
-            SSerial.println("0x3"+sonar.ping_cm()%10);
+            temp = sonar.ping_cm();
+            if(temp>99)
+              SSerial.println("0x350x300x30");
+            else{
+            temp=temp%100;
+            SSerial.print("0x3"+temp/10);            
+            SSerial.println("0x3"+temp%10);
+            }
             delay(900);
           }
           else
