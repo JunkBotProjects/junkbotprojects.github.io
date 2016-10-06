@@ -24,7 +24,6 @@
             if(temp>99)
               SSerial.println("0x350x300x30");
             else{
-            temp=temp%100;
             SSerial.print("0x3"+temp/10);            
             SSerial.println("0x3"+temp%10);
             }
