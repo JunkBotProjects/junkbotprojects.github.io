@@ -1,0 +1,10 @@
+{
+	"title":"Auto Lighting",
+	"description":"Motion activated Lighting",
+	"info":[
+		"info.md"
+	],
+	"code":[
+		"motion-light.ino"
+	]
+}

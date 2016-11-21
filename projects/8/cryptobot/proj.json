@@ -1,0 +1,10 @@
+{
+	"title":"Cryptobot [DEPRECIATED]",
+	"description":"",
+	"info":[
+		"info.md"
+	],
+	"code":[
+		"cryptobot.ino"
+	]
+}

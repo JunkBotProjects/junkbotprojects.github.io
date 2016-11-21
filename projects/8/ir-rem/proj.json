@@ -1,0 +1,10 @@
+{
+	"title":"IR Remote (Depreciated)",
+	"description":"A bluetooth controlled IR remote",
+	"info":[
+		"info.md"
+	],
+	"code":[
+		"code.ino"
+	]
+}

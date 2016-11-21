@@ -1,0 +1,10 @@
+{
+	"title":"Wake Me Up Bot",
+	"description":"A bot that wakes you when its morning.",
+	"info":[
+		"info.md"
+	],
+	"code":[
+		"code.ino"
+	]
+}

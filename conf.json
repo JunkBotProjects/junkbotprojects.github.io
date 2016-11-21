@@ -1,6 +1,6 @@
 { 
 	"site":{ 
-		"version":7,
+		"version":8,
 		"projects":[
 			"rover1",
 			"rover2",
@@ -8,13 +8,11 @@
 			"bbotA",
 			"ranger",
 			"ha",
-			"clothes",
 			"cryptobot",
 			"ir-rem",
 			"kb",
 			"motion-light",
 			"mouse",
-			"org",
 			"piano",
 			"wakemeup"
 		]
