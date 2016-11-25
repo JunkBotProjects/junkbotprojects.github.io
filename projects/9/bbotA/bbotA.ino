@@ -24,7 +24,7 @@
             }
           }
           if(SSerial.available())
-            switch(SSerial.readChar()){
+            switch(SSerial.read()){
               case 'S':
                 run = true;
               break;

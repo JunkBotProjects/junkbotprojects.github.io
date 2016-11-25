@@ -1,7 +1,7 @@
         #include <SoftwareSerial.h>
         SoftwareSerial SSerial (9,10);
         char b[5];
-        int speed=255;
+        int speed = 255;
         int lp = 3;
         int ln = 5;
         int rp = 6;
@@ -14,7 +14,7 @@
         void loop() {
           // put your main code here, to run repeatedly:
           if(SSerial.available()){
-            switch(SSerial.readChar()){
+            switch(SSerial.read()){
               case 'L' :
                 analogWrite(lp,0);
                 analogWrite(ln,speed);
@@ -46,7 +46,5 @@
                 analogWrite(rn,0);
               break;
             }
-            //set speed
-            speed = (SSerial.readChar()-'0') * 25;
           }
         }
